@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 var path = require('path');
 
-app.use(express.static(path.join(__dirname + '/..dist/chatappphaseone')));
+app.use(express.static(path.join(__dirname + '/../dist/chatappphaseone')));
 
 var http = require('http').Server(app);
 var server = http.listen(3000, function(){

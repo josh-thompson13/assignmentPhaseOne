@@ -28,6 +28,7 @@ module.exports = function(req,res){
                 var userData = extendedUserArray[i];
                 //console.log(userData);
                 userData["ok"] = true;
+                console.log(userData);
                 res.send(userData)
             })
         }

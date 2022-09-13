@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -31,7 +30,19 @@ export class LoginComponent implements OnInit {
     .subscribe((data:any)=>{
       alert("Posting: " +JSON.stringify(user));
       alert("Post response: "+JSON.stringify(data));
-      
+      // If the ok attribute is set to true run:
+      if(data.ok){
+        alert("Valid Credentials");
+        sessionStorage.setItem('userid', data.userid.toString());
+        sessionStorage.setItem('userlogin', data.ok.toString());
+        sessionStorage.setItem('username', data.username);
+        sessionStorage.setItem('userbirthdate', data.userbirthdate);
+        sessionStorage.setItem('userage', data.userage.toString());
+        
+        this.router.navigateByUrl("/account");
+      } else {
+        alert("Invalid credentials")
+      }
     })
     
   }

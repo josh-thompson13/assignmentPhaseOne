@@ -1,5 +1,38 @@
 [
-    {"userid":1,"username":"123","userbirthdate":"2022-12-23","userage":30000},
-    {"userid":2,"username":"1234","userbirthdate":"2022-09-23","userage":20000}
-    
+    {"userid":1,"username":"kaile","email":"k.su@griffith.edu.au","system_role":"Super_Admin","groups":
+        [
+        {"group_id":1,"group_name":"group1","rooms":
+            ["Start","Unrelated"]},
+        {"group_id":2,"group_name":"group2","rooms":
+            ["Start","Assignments","Resources"]},
+        {"group_id":3,"group_name":"group3","rooms":
+            ["Tutorials","Tutorial Discussion"]},
+        {"group_id":4,"group_name":"group4","rooms":
+            ["Assistance","Assesments","Other"]}]},
+
+    {"userid":2,"username":"josh","email":"josh@email.com","system_role":"Group_Admin","groups":
+        [
+        {"group_id":2,"group_name":"group2","rooms":
+            ["Start","Assignments","Resources"]},
+        {"group_id":3,"group_name":"group3","rooms":
+            ["Tutorials","Tutorial Discussion"]},
+        {"group_id":4,"group_name":"group4","rooms":
+            ["Assistance","Assesments","Other"]},
+        {"group_id":5,"group_name":"group5","rooms":
+            ["Start","Unrelated"]}]},
+
+    {"userid":3,"username":"milly","email":"milly@email.com","system_role":"Group_Assis","groups":
+        [
+        {"group_id":2,"group_name":"group2","rooms":
+            ["Start","Assignments"]},
+        {"group_id":4,"group_name":"group4","rooms":
+            ["Assistance","Assesments","Other"]}]},
+            
+    {"userid":4,"username":"mish.no","email":"mich@noord,com","system_role":"Member","groups":
+        [
+        {"group_id":2,"group_name":"group2","rooms":
+            ["Start","Assignments"]},
+        {"group_id":4,"group_name":"group4","rooms":
+        ["Assistance","Assesments","Other"]}]}
 ]
+
