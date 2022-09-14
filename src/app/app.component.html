@@ -8,12 +8,16 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/groups">Groups</a>
       </li>
-      <li class="nav-item" *ngIf="system_role == 'System_Admin' || system_role == 'Group_Admin'">
+      <li class="nav-item" *ngIf="system_role == 'Super_Admin' || system_role == 'Group_Admin'">
         <a class="nav-link" routerLink="/createuser">Create User</a>
+      </li>
+      <li class="nav-item" *ngIf="system_role == 'Super_Admin'">
+        <a class="nav-link" routerLink="/users">All Users</a>
       </li>
       <li class="nav-item" *ngIf="userlogin">
         <a class="nav-link" href = "/" (click)="logout()">Logout</a>
       </li>
+      
     </ul>
   </div>
 </nav>
