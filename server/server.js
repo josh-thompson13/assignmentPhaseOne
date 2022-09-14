@@ -19,3 +19,4 @@ var server = http.listen(3000, function(){
 
 app.post('/login', require('./routes/postLogin'))
 app.get('/users', require('./routes/getUsers'))
+app.get('/createuser', require('./routes/createUser'))

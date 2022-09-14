@@ -1,17 +1,1 @@
-[{
-    "username": "kaile",
-    "pwd": "123" 
-},
-{
-    "username": "josh",
-    "pwd": "123"
-},
-{
-    "username": "milly",
-    "pwd": "123"
-},
-{
-    "username": "andrew",
-    "pwd": "123"
-}
-]
+[{"username":"kaile","pwd":"123"},{"username":"josh","pwd":"123"},{"username":"milly","pwd":"123"},{"username":"andrew","pwd":"123"}]
