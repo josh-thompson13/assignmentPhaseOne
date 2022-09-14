@@ -6,10 +6,13 @@
         <a class="nav-link" routerLink="/">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link" routerLink="/groups">Groups</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/account">Account</a>
+      <li class="nav-item" *ngIf="system_role == 'System_Admin' || system_role == 'Group_Admin'">
+        <a class="nav-link" routerLink="/createuser">Create User</a>
+      </li>
+      <li class="nav-item" *ngIf="userlogin">
+        <a class="nav-link" href = "/" (click)="logout()">Logout</a>
       </li>
     </ul>
   </div>

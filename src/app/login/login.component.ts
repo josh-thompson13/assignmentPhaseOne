@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   password = "";
   x = "";
 
-  constructor(private router: Router, private httpClient: HttpClient) { }
+  constructor(private router: Router, private httpClient: HttpClient, private navbar: AppComponent) { }
 
   ngOnInit(): void {
   }
@@ -35,25 +36,28 @@ export class LoginComponent implements OnInit {
       if(data.ok){
         alert("Valid Credentials");
         // Set user to be logged in
-        sessionStorage.setItem('userlogin', data.ok.toString());
+        localStorage.setItem('userlogin', data.ok.toString());
 
         // Set user id
-        sessionStorage.setItem('userid', data.userid.toString());
+        localStorage.setItem('userid', data.userid.toString());
 
         // Set username
-        sessionStorage.setItem('username', data.username);
+        localStorage.setItem('username', data.username);
 
         // Set system role
-        sessionStorage.setItem('system_role', data.system_role);
+        localStorage.setItem('system_role', data.system_role);
 
         // Set groups
-        sessionStorage.setItem('groups', data.groups);
+        localStorage.setItem('groups', JSON.stringify( data.groups));
 
         // View session storage
-        //let x = sessionStorage.getItem('groups');
-        //alert(x);
+        let x = localStorage.getItem('userlogin');
+        alert(x);
 
-        this.router.navigateByUrl("/account");
+        // Refresh the navbar so login appears and then route to /groups
+        this.navbar.userlogin = "true";
+        this.navbar.system_role = localStorage.getItem('system_role')
+        this.router.navigateByUrl("/groups");
       } else {
         alert("Invalid credentials")
       }
