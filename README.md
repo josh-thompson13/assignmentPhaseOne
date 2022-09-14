@@ -1,27 +1,37 @@
-# Chatappphaseone
+# ChatApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+This is the beginning of a chat app
 
-## Development server
+## Repository Layout
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The repository is laid out in a straight forward way. There has not been a need for branches as of yet as I have not implemented any 'risky' code **yet**. I used GIT for version control. 
 
-## Code scaffolding
+## Data Structures
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The Users are represented with a username, email, pwd, system_role, [groups], and [rooms]
+The groups are represented with a group_id, group_name, and [rooms]
 
-## Build
+## REST API
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Currently there are 3 routes in the nodejs backend.
 
-## Running unit tests
+A post request to the '/login' endpoint which will check if a user exists based on the inputted username and password, if exists, the response sends a value of true and the user is logged in, else it sends a response with a value of false and prompts the user to login again.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The second route is a get to the '/users' endpoint. This route responds with a list of all users, so the super_admin can delete and edit each one as they please.
 
-## Running end-to-end tests
+The third route is a post request to '/createuser'. This route checks if a user exists (based on username), and if the user does not exist, will add the user to the users.json file with a username, email and automatically set password, returning true. If the user exists or all inputted fields are not inputted, it will return an error.  
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Angular Architecture
 
-## Further help
+### Components - There are six components that make up this project
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. App Component - This component is responsible for the navigation bar and the logout() function
+2. Login Component - This component is responsible for handling user login as well as localStorage setting. 
+3. Groups Component - This component will show the logged in user the groups that they are apart of. It will also allow users (with permission) to create new groups or delete old ones.
+4. Group Component - This component will display the rooms in a particular group. 
+5. Users Component - This component displays all registered users and will allow the super_admin and group_admin to delete/edit them if needed
+6. Create User Component - This component is responsible for creating users with a supplied username and email.
+
+### Services - There is currently one service (more to come)
+
+1. Authguard Service - This service will redirect the user to the login component if the user is not logged in and tries to access any part of the site other than the login page. 
