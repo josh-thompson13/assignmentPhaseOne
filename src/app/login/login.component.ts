@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   email = "";
   password = "";
   x = "";
+  login = this.navbar.userlogin
 
   constructor(private router: Router, private httpClient: HttpClient, private navbar: AppComponent) { }
 

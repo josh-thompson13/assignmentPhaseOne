@@ -28,7 +28,6 @@ export class CreateuserComponent implements OnInit {
 
   createUser(username:string, email:string){
     let params = new HttpParams({fromObject: {'username':username, 'email':email}})
-    //let params = new HttpParams().set({'username', username});
     this.httpClient.get(BACKEND_URL + '/createuser', {params:params})
     .subscribe((data:any)=>{
       // If response 
@@ -36,7 +35,7 @@ export class CreateuserComponent implements OnInit {
         alert("Creating user")
         // this.httpClient.post etc.
       } else {
-        alert("User already exists")
+        alert("User already exists or you have not entered all fields")
       }
       
     })

@@ -2,21 +2,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <br>
-<div [ngSwitch]="system_role">
-    <button class="btn btn-success" *ngSwitchCase="'Super_Admin'">Create Group</button>
-    <button class="btn btn-success" *ngSwitchCase="'Group_Admin'">Create Group</button>
+<div *ngIf="system_role == 'Super_Admin' || system_role == 'Group_Admin'">
+    <button class="btn btn-success">Create New Group</button>
 </div>
+<br>
 
 <ul>
     <div class = "row">
         <div *ngFor="let group of groups" class = "col-sm-6">
-            <div class = "card-body">
-                <h5 class="card-title">{{group.group_name}}</h5>
-                <p>{{group.group_id}}</p>
-                <button class="btn btn-secondary" (click)="joinGroup(group.group_id)">Join Group</button>
-                <br><br>
-                <button class="btn btn-danger" *ngIf="system_role=='Group_Admin'||system_role=='Super_Admin'">Delete Group</button>
+            <div class="card">
+                <div class = "card-body">
+                    <h5 class="card-title">{{group.group_name}}</h5>
+                    <p>{{group.group_id}}</p>
+                    <button class="btn btn-secondary" (click)="joinGroup(group.group_id)">Join Group</button>
+                    <br><br>
+                    <button class="btn btn-danger" *ngIf="system_role=='Group_Admin'||system_role=='Super_Admin'">Delete Group</button>
+                </div>
             </div>
+            
         </div>
     </div>
 </ul>
