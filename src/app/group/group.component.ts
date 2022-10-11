@@ -27,7 +27,6 @@ export class GroupComponent implements OnInit {
     });
     console.log(this.rooms[0][2]);
    
-
   }
 
 }

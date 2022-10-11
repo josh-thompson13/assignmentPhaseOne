@@ -33,27 +33,32 @@ export class LoginComponent implements OnInit {
     .subscribe((data:any)=>{
       alert("Posting: " +JSON.stringify(user));
       alert("Post response: "+JSON.stringify(data));
+
       // If the ok attribute is set to true run:
       if(data.ok){
-        alert("Valid Credentials");
+        alert("Validated Credentials");
+        alert(data.result.email);
+
         // Set user to be logged in
         localStorage.setItem('userlogin', data.ok.toString());
 
-        // Set user id
-        localStorage.setItem('userid', data.userid.toString());
 
-        // Set username
-        localStorage.setItem('username', data.username);
+        // Set user id
+        //localStorage.setItem('userid', data.userid.toString());
+
+        // Set username (email)
+        localStorage.setItem('username', data.result.email);
+
 
         // Set system role
-        localStorage.setItem('system_role', data.system_role);
+        localStorage.setItem('system_role', data.result.system_role);
 
         // Set groups
-        localStorage.setItem('groups', JSON.stringify( data.groups));
+        localStorage.setItem('groups', JSON.stringify( data.result.groups));
 
         // View session storage
-        let x = localStorage.getItem('userlogin');
-        alert(x);
+       // let x = localStorage.getItem('username');
+       // alert(x);
 
         // Refresh the navbar so login appears and then route to /groups
         this.navbar.userlogin = "true";
@@ -63,7 +68,7 @@ export class LoginComponent implements OnInit {
         alert("Invalid credentials")
       }
     })
-    
+
   }
 
 }
