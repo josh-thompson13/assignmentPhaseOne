@@ -13,6 +13,7 @@ import { GroupComponent } from './group/group.component';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { UsersComponent } from './users/users.component';
 import { CreateGroupComponent } from './create-group/create-group.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CreateGroupComponent } from './create-group/create-group.component';
     GroupComponent,
     CreateuserComponent,
     UsersComponent,
-    CreateGroupComponent
+    CreateGroupComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

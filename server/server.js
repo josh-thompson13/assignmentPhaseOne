@@ -27,11 +27,13 @@ const login = require('./routes/postLogin');
 const createUser = require('./routes/createUser');
 const users = require('./routes/getUsers');
 const deleteUser = require('./routes/delete')
+const createGroup = require('./routes/createGroup.js');
 
 app.post('/login', login(client))
 app.get('/users', users(client))
 app.post('/createuser', createUser(client))
 app.post('/deleteusers', deleteUser(client))
+app.post('/creategroup', createGroup(client))
 
 
 var http = require('http').Server(app);

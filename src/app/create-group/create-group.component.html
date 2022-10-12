@@ -11,10 +11,14 @@
               <input type="text" id="typeEmailX-2" class="form-control form-control-lg" [(ngModel)]="groupName" name = "groupName" />
               <label class="form-label" for="typeEmailX-2">Group Name</label>
             </div>
+            <div class="form-outline mb-4">
+              <input type="text" id="typeEmailX-2" class="form-control form-control-lg" [(ngModel)]="groupId" name = "groupName" />
+              <label class="form-label" for="typeEmailX-2">Group Id</label>
+            </div>
 
 
 
-            <button class="btn btn-primary btn-lg btn-block" (click)="createGroup(groupName)" type="submit">Create Group</button>
+            <button class="btn btn-primary btn-lg btn-block" (click)="createGroup(groupName, groupId)" type="submit">Create Group</button>
           </div>
         </div>
       </div>

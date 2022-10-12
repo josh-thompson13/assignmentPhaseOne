@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-group',
   templateUrl: './group.component.html',
@@ -12,7 +12,7 @@ export class GroupComponent implements OnInit {
   rooms: string[] = [];
 
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -30,5 +30,9 @@ export class GroupComponent implements OnInit {
         });
       }
     });
+  }
+
+  joinChannel(){
+    this.router.navigateByUrl("/chat");
   }
 }
