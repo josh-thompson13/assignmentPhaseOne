@@ -23,15 +23,23 @@ client.connect(function(err){
 
 })
 
+const login = require('./routes/postLogin');
+const createUser = require('./routes/createUser');
+const users = require('./routes/getUsers');
+const deleteUser = require('./routes/delete')
+
+app.post('/login', login(client))
+app.get('/users', users(client))
+app.post('/createuser', createUser(client))
+app.post('/deleteusers', deleteUser(client))
+
 
 var http = require('http').Server(app);
 var server = http.listen(3000, function(){
     console.log("Server activated");
 });
 
-const login = require('./routes/postLogin');
 
 
-app.post('/login', login(client))
-app.get('/users', require('./routes/getUsers'))
-app.get('/createuser', require('./routes/createUser'))
+
+

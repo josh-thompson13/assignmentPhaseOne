@@ -3,7 +3,7 @@
 </head>
 <br>
 <div *ngIf="system_role == 'Super_Admin' || system_role == 'Group_Admin'">
-    <button class="btn btn-success">Create New Group</button>
+    <button (click)="createGroup()" class="btn btn-success">Create New Group</button>
 </div>
 <br>
 
@@ -19,7 +19,7 @@
                     <button class="btn btn-danger" *ngIf="system_role=='Group_Admin'||system_role=='Super_Admin'">Delete Group</button>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </ul>

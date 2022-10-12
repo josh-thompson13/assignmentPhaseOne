@@ -6,6 +6,7 @@ import { GroupsComponent } from './groups/groups.component';
 import { GroupComponent } from './group/group.component';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { UsersComponent } from './users/users.component';
+import { CreateGroupComponent } from './create-group/create-group.component';
 import { AuthguardService } from './services/authguard.service';
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'groups', component:GroupsComponent, canActivate: [AuthguardService] },
   {path:'group/:id', component:GroupComponent, canActivate: [AuthguardService]},
   {path:'createuser', component:CreateuserComponent, canActivate: [AuthguardService]},
-  {path:'users', component:UsersComponent, canActivate: [AuthguardService]}
+  {path:'users', component:UsersComponent, canActivate: [AuthguardService]},
+  {path: 'creategroup', component:CreateGroupComponent, canActivate: [AuthguardService]}
 ];
 
 @NgModule({

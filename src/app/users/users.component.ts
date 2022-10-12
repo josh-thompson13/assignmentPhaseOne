@@ -19,6 +19,8 @@ export class UsersComponent implements OnInit {
 
   users:string[] = [];
 
+  system_role = localStorage.getItem('system_role');
+
   constructor(private router: Router, private httpClient: HttpClient) { }
 
   ngOnInit() {
@@ -30,11 +32,23 @@ export class UsersComponent implements OnInit {
     await this.httpClient.get(BACKEND_URL + '/users',httpOptions)
     .subscribe((data:any)=>{
       // Initially data comes back as JSON object
-      alert("List of users in string form: " + JSON.stringify(data))
+     // alert("List of users in string form: " + JSON.stringify(data))
       data.forEach((element: any) => {
-        this.users.push(element.username.toString())
+        this.users.push(element.email.toString())
       });
     })
   }
+
+  deleteUser(user:string){
+    const email = {email: user};
+    this.httpClient.post(BACKEND_URL + '/deleteusers', email, httpOptions)
+    .subscribe((data:any) => {
+      if(data.deleted){
+        alert(user + " successfully deleted from users");
+      }
+    })
+    this.router.navigateByUrl('/users');
+  }
+
 
 }

@@ -1,5 +1,4 @@
 var fs = require('fs');
-const { isSet } = require('util/types');
 
 module.exports = (client) => (req, res) => {
   var u = req.body.username; // User entered email

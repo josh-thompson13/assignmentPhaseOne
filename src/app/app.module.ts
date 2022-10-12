@@ -12,6 +12,7 @@ import { GroupsComponent } from './groups/groups.component';
 import { GroupComponent } from './group/group.component';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { UsersComponent } from './users/users.component';
+import { CreateGroupComponent } from './create-group/create-group.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UsersComponent } from './users/users.component';
     GroupsComponent,
     GroupComponent,
     CreateuserComponent,
-    UsersComponent
+    UsersComponent,
+    CreateGroupComponent
   ],
   imports: [
     BrowserModule,

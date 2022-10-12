@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class GroupsComponent implements OnInit {
 
- 
+
 
   userlogin = localStorage.getItem('userlogin')
   userid = localStorage.getItem('userid')
@@ -26,6 +26,10 @@ export class GroupsComponent implements OnInit {
   joinGroup(id:string){
     this.router.navigateByUrl('/group/'+id)
     console.log(id);
+  }
+
+  createGroup(){
+    this.router.navigateByUrl('creategroup');
   }
 
 }
