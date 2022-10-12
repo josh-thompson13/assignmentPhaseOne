@@ -30,7 +30,7 @@ The sixth and final route is a get request to '/chat' which will return the chat
 
 ## Angular Architecture
 
-### Components - There are six components that make up this project
+### Components - There are eight components that make up this project
 
 1. App Component - This component is responsible for the navigation bar and the logout() function
 2. Login Component - This component is responsible for handling user login as well as localStorage setting. 
