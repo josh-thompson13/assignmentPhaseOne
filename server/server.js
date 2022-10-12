@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+const {Server} = require("socket.io");
+
 var cors = require('cors');
 app.use(cors());
 
@@ -35,11 +37,29 @@ app.post('/createuser', createUser(client))
 app.post('/deleteusers', deleteUser(client))
 app.post('/creategroup', createGroup(client))
 
+app.get('/chat', (req,res)=>{
+  res.sendFile(__dirname + '/chat.html');
+})
 
 var http = require('http').Server(app);
-var server = http.listen(3000, function(){
+
+/*var server = */http.listen(3000, function(){
     console.log("Server activated");
 });
+
+const io = require('socket.io')(http)
+
+io.on('connection', (socket) => {
+  socket.on('chat message', msg => {
+    io.emit('chat message', msg);
+  });
+});
+
+function goBack(){
+  console.log("Redirect");
+  res.redirect('http://localhost:3000');
+
+}
 
 
 

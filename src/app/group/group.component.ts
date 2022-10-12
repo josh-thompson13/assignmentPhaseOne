@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-group',
   templateUrl: './group.component.html',
@@ -33,6 +34,7 @@ export class GroupComponent implements OnInit {
   }
 
   joinChannel(){
-    this.router.navigateByUrl("/chat");
+    document.location.href = "http://localhost:3000/chat";
+    //this.router.navigateByUrl("/chat");
   }
 }
