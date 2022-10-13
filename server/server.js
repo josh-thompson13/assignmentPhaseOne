@@ -50,10 +50,17 @@ var http = require('http').Server(app);
 const io = require('socket.io')(http)
 
 io.on('connection', (socket) => {
+  io.emit('chat message', "User Joined");
   socket.on('chat message', msg => {
     io.emit('chat message', msg);
-  });
+  })
+  socket.on('disconnect', () => {
+    io.emit('chat message', "User disconnected");
+  })
+
+
 });
+
 
 function goBack(){
   console.log("Redirect");
